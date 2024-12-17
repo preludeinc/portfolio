@@ -1,0 +1,124 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem;
+  text-align: center;
+  background-color: #0C2340;
+}
+
+body {
+  background-color: #0C0C0C;
+}
+
+a {
+  color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-white));
+  text-decoration: none;
+  font-size: larger;
+}
+
+/* nav styling */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  min-height: 100vh;
+  padding: var(--mantine-spacing-md);
+  border-right: 1px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-4));
+}
+
+.navbarMain {
+  flex: 1;
+  margin-top: 50px;
+}
+
+.link {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--mantine-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+
+  &:hover {
+    background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+  }
+
+  &[data-active] {
+    &,
+    &:hover {
+      background-color: var(--mantine-color-blue-light);
+      color: var(--mantine-color-blue-light-color);
+    }
+  }
+}
+
+/* home page */
+.inner {
+  display: flex;
+  justify-content: space-between;
+  padding-top: calc(var(--mantine-spacing-xl) * 2);
+  padding-bottom: calc(var(--mantine-spacing-xl) * 2);
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-gray-2));
+}
+
+.content {
+  max-width: 580px;
+  margin-right: calc(var(--mantine-spacing-xl) * 2);
+
+  @media (max-width: mantine-breakpoint-md) {
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+.title {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  font-family:
+    Greycliff CF,
+    var(--mantine-font-family);
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 900;
+
+  @media (max-width: mantine-breakpoint-xs) {
+    font-size: 28px;
+  }
+}
+
+.control {
+  @media (max-width: mantine-breakpoint-xs) {
+    flex: 1;
+  }
+}
+
+.image {
+  width: 400px;
+  height: 410px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: var(--mantine-spacing-xl);
+  padding: var(--mantine-spacing-xl);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--mantine-spacing-lg);
+
+  @media (max-width: mantine-breakpoint-xs) {
+    flex-direction: column;
+  }
+}
+
+.footer-links {
+  @media (max-width: mantine-breakpoint-xs) {
+    margin-top: var(--mantine-spacing-md);
+  }
+}
