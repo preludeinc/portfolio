@@ -1,2 +1,2 @@
 ## Portfolio Website
-Project data is stored using a Django REST API and routing and page structure managed by React. Styling help is provided by Mantine UI.
+Project data is stored using a Django REST API and routing and page structure are managed by React, with styling help provided by Mantine UI.
