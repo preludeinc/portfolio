@@ -3,8 +3,7 @@ import { Project } from "../classes/project";
 import { ProjectService } from "../classes/projectservice"
 import { siteConfig } from "../config/site";
 import { DefaultLayout } from "../layouts/Default";
-import { Container, Text, Title } from "@mantine/core";
-import { config } from 'dotenv';
+import { Container, Grid, Image, Text, Title } from "@mantine/core";
 
 export default function Web() {
 
@@ -20,22 +19,29 @@ export default function Web() {
         fetchProjectData();
     }, []);
 
-    config();
-
     return (
         <>
         <DefaultLayout page={page}>
-            <Container fluid size="xl">
                 <Title className="title" mb={60}>Websites</Title>
                 {data ? 
                     data.map((_item) => 
-                    <div key={_item.id}>
-                        <Title order={1} m={20} ta="left" c="white">{_item.title}</Title>
-                        {_item.id == 1 ? (<img src={import.meta.env.BASE_URL + '/home_page.jpg'} />): null}
-                        <Text c="cyan" ta="left" m={20} size="xl">{_item.description}</Text>
-                    </div>
+                    <Container className="web-container" size="md" key={_item.id} m={20}>
+                        <Title order={2} mt={20} ta={{base: "center", md: "left"}} c="white">{_item.title}</Title>
+                        <Text c="white" ta="left" mt={20} mb={20} size="xl">{_item.description}</Text>
+                        {_item.id == 1 ? (
+                            <Grid>
+                                <Grid.Col span={12}>
+                                    <Image
+                                        src={'/home_page.jpg'}
+                                        radius="md"
+                                        fit="contain" />
+                                 </Grid.Col>
+                                <Grid.Col span={12}>
+                                    <Image src={'/teams_page.jpg'} mb={10} />
+                                </Grid.Col>
+                            </Grid>): null}
+                    </Container>
                 ): null}
-            </Container>
         </DefaultLayout>
         </>
     );

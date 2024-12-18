@@ -16,21 +16,17 @@ export default function Home() {
   let homePage = 0;
   return (
     <DefaultLayout page={homePage}>
-      <Container fluid>
+      <Container className="home_container" fluid>
         <Grid className="inner" gutter={5}>
-          <Grid.Col className="content" span={{ base: 10, md: 12, lg: 6 }}>
+          <Grid.Col className="content" span={{ base: 12, md: 12, lg: 6 }}>
             <Title className="title">Home</Title>
-            <Title c="cyan" order={2} mt={20} mb={20}>
+            <Title c="cyan" order={2} mt={5} mb={30} ml={25}>
               Welcome! ☺️
             </Title>
 
-            <Text ta="left" size="lg" mt={10} mb={5}>
-              A bit about me:
-            </Text>
-
-            <List mt={20} spacing="lg" size="lg" ta={{ base: "left", lg: "center" }}>
+            <List mt={20} spacing="lg" size="xl" ta={{ base: "left", md: "center" }}>
               <List.Item>
-                I'm an aspiring developer with an interest in CyberSecurity.
+                I'm an aspiring developer with an interest in Cybersecurity.
               </List.Item>
               <List.Item>
                 I studied Psychology prior to transitioning into tech.
@@ -40,11 +36,11 @@ export default function Home() {
               </List.Item>
             </List>
 
-            <Text ta="center" size="lg" mt={30} mb={5}>
+            <Text size="xl" mt={30} mb={10} ta="center">
               More of my work is available here:
             </Text>
 
-            <Group justify="center" mt={20}>
+            <Group justify="center" mt={5}>
               <Button variant="filled" color="cyan">
                 <a href={"/websites"}>Websites</a>
               </Button>
@@ -56,12 +52,12 @@ export default function Home() {
               </Button>
             </Group>
           </Grid.Col>
-          <Grid.Col className="content" span={{ base: 10, md: 12, lg: 6 }}>
+          <Grid.Col className="content" span={{ base: 12, md: 12, lg: 6 }}>
             <Center>
               <Image
                 src={image}
                 radius="md"
-                h={{ base: 250, md: 500, lg: 500 }}
+                h={{ base: 350, md: 500, lg: 550 }}
                 w="auto"
                 fit="contain"
                 className="image"

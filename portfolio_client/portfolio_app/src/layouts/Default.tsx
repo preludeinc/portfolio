@@ -9,8 +9,6 @@ export const DefaultLayout = ({children, page} :
         <>
             <AppShell
                 header={{ height: { base: 50, sm: 60, lg: 76 } }}
-                padding={{ base: 18, sm: 15, lg: 'xl' }}
-                m={{base: 18, sm: 10, lg: 'xl'}}
                 >
                 <Navbar page={page}/>
                 <AppShell.Main>
