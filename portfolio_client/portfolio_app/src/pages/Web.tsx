@@ -4,6 +4,7 @@ import { ProjectService } from "../classes/projectservice"
 import { siteConfig } from "../config/site";
 import { DefaultLayout } from "../layouts/Default";
 import { Container, Text, Title } from "@mantine/core";
+import { config } from 'dotenv';
 
 export default function Web() {
 
@@ -11,25 +12,29 @@ export default function Web() {
     let page = siteConfig.WEB_CATEGORY;
 
     useEffect(() => {
-        function fetchProjectData() {
+        const fetchProjectData = async () => {
             const projectCall = new ProjectService(siteConfig.PORT);
-            const response = projectCall.getProjects(page);
+            const response = await projectCall.getProjects(page);
             setData(response);
         };
         fetchProjectData();
     }, []);
-    console.log(data);
+
+    config();
 
     return (
         <>
         <DefaultLayout page={page}>
             <Container fluid size="xl">
-                <Title className="title">Websites</Title>
-                {data ? data.map((item, i) => (
-                    <Title order={2}></Title>
-                )): null}
-                <Text c="cyan" ta="right"><i>This website has a Rails API and React front end<br/>
-                with styling help provided by Mantine UI.</i></Text>
+                <Title className="title" mb={60}>Websites</Title>
+                {data ? 
+                    data.map((_item) => 
+                    <div key={_item.id}>
+                        <Title order={1} m={20} ta="left" c="white">{_item.title}</Title>
+                        {_item.id == 1 ? (<img src={import.meta.env.BASE_URL + '/home_page.jpg'} />): null}
+                        <Text c="cyan" ta="left" m={20} size="xl">{_item.description}</Text>
+                    </div>
+                ): null}
             </Container>
         </DefaultLayout>
         </>

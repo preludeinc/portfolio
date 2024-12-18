@@ -1,5 +1,6 @@
 import {
   Button,
+  Center,
   Container,
   Grid,
   Group,
@@ -15,19 +16,19 @@ export default function Home() {
   let homePage = 0;
   return (
     <DefaultLayout page={homePage}>
-      <Container size="lg">
-        <Grid className="inner" gutter={10}>
-          <Grid.Col span={10} className="content">
+      <Container fluid>
+        <Grid className="inner" gutter={5}>
+          <Grid.Col className="content" span={{ base: 10, md: 12, lg: 6 }}>
             <Title className="title">Home</Title>
-            <Text c="cyan" mt={20} mb={20} size="xl">
+            <Title c="cyan" order={2} mt={20} mb={20}>
               Welcome! ☺️
-            </Text>
+            </Title>
 
-            <Text ta="left" size="xl" mt={5} mb={5}>
+            <Text ta="left" size="lg" mt={10} mb={5}>
               A bit about me:
             </Text>
 
-            <List mt={20} spacing="lg" size="xl">
+            <List mt={20} spacing="lg" size="lg" ta={{ base: "left", lg: "center" }}>
               <List.Item>
                 I'm an aspiring developer with an interest in CyberSecurity.
               </List.Item>
@@ -39,7 +40,7 @@ export default function Home() {
               </List.Item>
             </List>
 
-            <Text ta="center" size="xl" mt={30} mb={5}>
+            <Text ta="center" size="lg" mt={30} mb={5}>
               More of my work is available here:
             </Text>
 
@@ -55,8 +56,17 @@ export default function Home() {
               </Button>
             </Group>
           </Grid.Col>
-          <Grid.Col span={2}>
-            <Image src={image} className="image" />
+          <Grid.Col className="content" span={{ base: 10, md: 12, lg: 6 }}>
+            <Center>
+              <Image
+                src={image}
+                radius="md"
+                h={{ base: 250, md: 500, lg: 500 }}
+                w="auto"
+                fit="contain"
+                className="image"
+              />
+            </Center>
           </Grid.Col>
         </Grid>
       </Container>

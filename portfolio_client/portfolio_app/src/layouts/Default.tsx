@@ -1,15 +1,22 @@
-import { Container } from "@mantine/core";
+import { AppShell, Container } from "@mantine/core";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
 export const DefaultLayout = ({children, page} :
-                             { children: any, page: number}) => {
+                             { children: any, 
+                                page: number}) => {
     return (
         <>
-            <Container size="lg">
+            <AppShell
+                header={{ height: { base: 50, sm: 60, lg: 76 } }}
+                padding={{ base: 18, sm: 15, lg: 'xl' }}
+                m={{base: 18, sm: 10, lg: 'xl'}}
+                >
                 <Navbar page={page}/>
-                {children}
-            </Container>
+                <AppShell.Main>
+                    {children}
+                </AppShell.Main>
+            </AppShell>
             <Footer />
         </>
     )

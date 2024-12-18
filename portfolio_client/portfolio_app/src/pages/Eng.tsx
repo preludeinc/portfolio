@@ -10,16 +10,14 @@ export default function Eng() {
     let page = siteConfig.ENG_CATEGORY;
 
     useEffect(() => {
-        function fetchProjectData() {
+        const fetchProjectData = async () => {
             const projectCall = new ProjectService(siteConfig.PORT);
-            const response = projectCall.getProjects(page);
+            const response = await projectCall.getProjects(page);
             setData(response);
         };
         fetchProjectData();
     }, []);
-
-    console.log(data);
-
+    
     return (
         <>
             <DefaultLayout page={page}>
